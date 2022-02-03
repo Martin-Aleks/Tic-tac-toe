@@ -1,5 +1,5 @@
 """
-View README for a progress note
+View progress note for a text description of the progress of this task.
 """
 
 import numpy as np 
@@ -335,7 +335,6 @@ def diag2_block_move_check(current_board_state,legal_moves_dict,turn_monitor):
                 selected_move=legal_move_coord
                 return selected_move
 
-#---------------#
 def row_second_move_check(current_board_state,legal_moves_dict,turn_monitor):
     """Function to scan rowwise and identify coordinate amongst the legal coordinates that will
     result in a row having two 0s and no 1s
@@ -677,38 +676,34 @@ def play(model,print_progress=True):
     model.fit(x,y,epochs=1,batch_size=1,verbose=0)
     return model,y,result
 
-# To train the model 200000 times and plot the number of Wins, Draws and Losses Vs count of games played
-game_counter=1
-data_for_graph=pd.DataFrame()
+## To train the model 200000 times and plot the number of Wins, Draws and Losses Vs count of games played
+#game_counter=1
+#data_for_graph=pd.DataFrame()
+#
+#mode_list=["Easy","Hard"]
+#
+#while(game_counter<=200000):
+#    mode_selected=np.random.choice(mode_list, 1, p=[0.5,0.5])
+#    model,y,result=train(model,mode=mode_selected, print_progress=False)
+#    data_for_graph=data_for_graph.append({"game_counter":game_counter,"result":result},ignore_index=True)
+#    if game_counter % 10000 == 0:
+#        print("Game#: ",game_counter)
+#        print("Mode: ",mode_selected[0])
+#    game_counter+=1
 
-mode_list=["Easy","Hard"]
+#bins = np.arange(1, game_counter/10000) * 10000
+#data_for_graph['game_counter_bins'] = np.digitize(data_for_graph["game_counter"], bins, right=True)
+#counts = data_for_graph.groupby(['game_counter_bins', 'result']).game_counter.count().unstack()
+#ax=counts.plot(kind='bar', stacked=True,figsize=(17,5))
+#ax.set_xlabel("Count of Games in Bins of 10,000s")
+#ax.set_ylabel("Counts of Draws/Losses/Wins")
+#ax.set_title('Distribution of Results Vs Count of Games Played')
 
-while(game_counter<=200000):
-    mode_selected=np.random.choice(mode_list, 1, p=[0.5,0.5])
-    model,y,result=train(model,mode=mode_selected, print_progress=False)
-    data_for_graph=data_for_graph.append({"game_counter":game_counter,"result":result},ignore_index=True)
-    if game_counter % 10000 == 0:
-        print("Game#: ",game_counter)
-        print("Mode: ",mode_selected[0])
-    game_counter+=1
-
-
-
-
-bins = np.arange(1, game_counter/10000) * 10000
-data_for_graph['game_counter_bins'] = np.digitize(data_for_graph["game_counter"], bins, right=True)
-counts = data_for_graph.groupby(['game_counter_bins', 'result']).game_counter.count().unstack()
-ax=counts.plot(kind='bar', stacked=True,figsize=(17,5))
-ax.set_xlabel("Count of Games in Bins of 10,000s")
-ax.set_ylabel("Counts of Draws/Losses/Wins")
-ax.set_title('Distribution of Results Vs Count of Games Played')
-
+#model.save('my_model.h5')  # creates a HDF5 file 'my_model.h5'
 
 
-model.save('my_model.h5')  # creates a HDF5 file 'my_model.h5'
 
-
-# Training the program only 200000 times will likely not be enough to consistently win or draw agains a reall opponent. 
+# Training the program only 200000 times will likely not be enough to consistently win or draw agains a real opponent. 
 # Training it 2 million times will likely improve it's performance agains real opponents.
 game_counter=1
 data_for_graph=pd.DataFrame()
@@ -719,7 +714,7 @@ while(game_counter<=2000000):
     mode_selected=np.random.choice(mode_list, 1, p=[0.5,0.5])
     model,y,result=train(model,mode=mode_selected, print_progress=False)
     data_for_graph=data_for_graph.append({"game_counter":game_counter,"result":result},ignore_index=True)
-    if game_counter % 100000 == 0:
+    if game_counter % 50000 == 0:
         print("Game#: ",game_counter)
         print("Mode: ",mode_selected[0])
     game_counter+=1
@@ -727,11 +722,11 @@ while(game_counter<=2000000):
 
 
 
-bins = np.arange(1, game_counter/100000) * 100000
+bins = np.arange(1, game_counter/50000) * 50000
 data_for_graph['game_counter_bins'] = np.digitize(data_for_graph["game_counter"], bins, right=True)
 counts = data_for_graph.groupby(['game_counter_bins', 'result']).game_counter.count().unstack()
 ax=counts.plot(kind='bar', stacked=True,figsize=(17,5))
-ax.set_xlabel("Count of Games in Bins of 100,000s")
+ax.set_xlabel("Count of Games in Bins of 50,000s")
 ax.set_ylabel("Counts of Draws/Losses/Wins")
 ax.set_title('Distribution of Results Vs Count of Games Played')
 
