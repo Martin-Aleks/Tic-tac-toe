@@ -16,7 +16,7 @@ with a 50/50 chance. To elaborate, "Easy" mode makes the coded opponent choose a
 As seen by the images, the program over many iterations became better at losing less, which is the ultimate goal of the task. 
 
 The program was tested against a real opponent approximately 5-10 times after each training session to observe the performance and consistency of the 
-program. The game could draw against a real opponent, but winning was not a common occurrence. For consistency, 200000 training iterations were run on a blank model (i.e., a brand new, untrained model) without pause. The results shown in Figure 4 follow the pattern that Figures 1, 2 and 3 show with minor differences likely due to the random nature of the move selection process of the coded opponent.
+program. The game could draw against a real opponent, but winning was not a common occurrence. For consistency, 200000 training iterations were run on a blank model (i.e., a brand new, untrained model) without pause. The results shown in Figure 4 follow the pattern that Figures 1, 2 and 3 show with minor differences likely due to the random nature of the move selection process of the coded opponent. One difference is that the rate of losing appears to decrease slower compared to the first 200000 training iterations displayed in Figures 1, 2 and 3. This could either be because of the games played against a real opponent (which also modify the model weights) or because of the random nature of the training process mentioned above.
 
 ![](Images/Figure%204.png)
 
