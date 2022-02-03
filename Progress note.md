@@ -1,7 +1,7 @@
 # Self-learning tic-tac-toe game
 
 Progress note: 
-This note will summarise the progress made on this project. The task was to create a tic-tac-toe game that can play against itself and thus learn what moves are more or less favourable. The ultimate criteria for success is a game that can play against a real opponent and win or draw consistently.
+This note will summarise and discuss the progress made on this project. The task was to create a tic-tac-toe game that can play against itself and thus learn what moves are more or less favourable. The ultimate criteria for success is a game that can play against a real opponent and win or draw consistently.
 The game code has been adapted from an open source Notebook [1] which used a Neural Network model that updates its weights after each game. After each game, a score of +1 is assigned if the program one, a score of 0 is assigned if the result is a draw and a score of -1 is assigned if the program lost. It is expected that after a large number of iterations, the program will make more favourable moves based on these scores. A Stochastic Gradient Descent (SGD) was used as an optimiser. The SGD learning rate and momentum parameters were adapted from the open source Notebook [1], although they could be further optimised. 
 The following 3 Figures show the count of wins, losses and draws for 100000, 60000 and 40000 games respectively. 
 These were the first runs of the training loop to total 200000 iterations of training with both "Easy" and "Hard" mode being randomly chosen 
