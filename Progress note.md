@@ -1,5 +1,4 @@
-# Tic-tac-toe
-Self-learning tic-tac-toe game
+# Self-learning tic-tac-toe game
 
 Progress note: 
 This note will summarise the progress made on this project. The task was to create a tic-tac-toe game that can play against itself and thus learn what moves are more or less favourable. The ultimate criteria for success is a game that can play against a real opponent and win or draw consistently.
